@@ -39,8 +39,7 @@ router.post('/register', bodyParser.json(),async (req, res) =>{
     }
 });
 
-router.post('/authenticate', bodyParser.json(), async(req, res) =>{
-    
+router.post('/authenticate', bodyParser.json(), async (req, res) => {
     const { email, password} = req.body;
     const user = await User.findOne({ email }).select('+password');
 
@@ -95,14 +94,11 @@ router.post('/forgot_password', bodyParser.json(), async (req, res) =>{
 
 router.post('/reset_password', bodyParser.json(),async (req, res) => {
 	const {email, token, password} = req.body;
-	try{
-        console.log(req.body.email);
-        console.log(req.body.token);
-        console.log(req.body.password);
+    try {
 		const user = await User.findOne({email})
 			.select('+passwordResetToken passwordResetExpires');
 		if(!user)
-			return res.status(400).send({error: 'User not found '});
+            return res.status(400).send({ error: 'User not found. ' });
 		if(token!== user.passwordResetToken)
             return res.status(400).send({error: 'Token invalid'});
 		const now = new Date();

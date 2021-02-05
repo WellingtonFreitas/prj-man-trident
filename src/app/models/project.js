@@ -1,6 +1,7 @@
 const mongoose = require('../../database');
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
+const Task = require("../models/task");
 
 
 const ProjectSchema = new Schema({
@@ -17,7 +18,6 @@ const ProjectSchema = new Schema({
         ref: 'User',
         require: true
     },
-    //um projeto pode ter varias task entao crio um array
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Task'

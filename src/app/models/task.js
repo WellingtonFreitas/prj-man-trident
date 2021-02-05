@@ -8,7 +8,6 @@ const TaskSchema = new Schema({
         type: String,
         required: true
     },
-    //task pertence  um project entao referencio assim
     project:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Project',
