@@ -1,0 +1,7 @@
+{
+    "name": "userDB",
+    "version": 2,
+    "env": {
+        "MONGODB_URI": "@mongodb"
+    }
+}
